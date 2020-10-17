@@ -1,0 +1,13 @@
+version: '3'
+services:
+  pptpd:
+    container_name: pptpd1
+    restart: always
+    build: .
+    image: pptpd1
+    volumes:
+      - ./chap-secrets:/etc/ppp/chap-secrets
+    network_mode: host
+    ports:
+      - 1723:1723
+    privileged: true

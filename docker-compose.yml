@@ -1,6 +1,14 @@
 version: '3'
 services:
   pptpd:
+    deploy:
+      resources:
+        limits:
+          cpus: '0.50'
+          memory: 150M
+        reservations:
+          cpus: '0.50'
+          memory: 150M
     container_name: pptpd1
     restart: always
     build: .

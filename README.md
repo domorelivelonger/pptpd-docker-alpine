@@ -12,7 +12,7 @@ or with Docker build
 git clone https://github.com/domorelivelonger/pptpd-docker-alpine.git
 cd pptpd-docker-alpine
 docker build -t pptpd1 .
-docker run --name pptpd1 -d --restart=always   --publish 1723:1723   \
+docker run --privileged --name pptpd1 -d --restart=always   --publish 1723:1723   \
 --volume /$(pwd)/chap-secrets:/etc/ppp/chap-secrets   \
 pptpd1:latest
 ```

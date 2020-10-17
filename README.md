@@ -12,10 +12,12 @@ or with Docker build
 git clone https://github.com/domorelivelonger/pptpd-docker-alpine.git
 cd pptpd-docker-alpine
 docker build -t pptpd1 .
-docker run --privileged --name pptpd1 -d --restart=always   --publish 1723:1723   \
+docker run --privileged --net=host --name pptpd1 -d --restart=always   --publish 1723:1723   \
 --volume /$(pwd)/chap-secrets:/etc/ppp/chap-secrets   \
 pptpd1:latest
 ```
+Note: Before starting container in --net=host mode, please read how networking in host mode works in Docker: https://docs.docker.com/reference/run/#mode-host
+-
 When accessing the vpn, pptp user will be ```x```, and password will be ```x```
 You can change it in file "chap-secrets", after restart container.
 

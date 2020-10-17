@@ -5,7 +5,7 @@ Minimal docker Alpine image with PPTPD VPN.
 ```
 git clone https://github.com/domorelivelonger/pptpd-docker-alpine.git
 cd pptpd-docker-alpine
-docker-compose up -d
+docker-compose --compatibility up -d
 ```
 or with Docker build
 ```

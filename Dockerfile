@@ -25,6 +25,7 @@ RUN apk --update --no-cache add pptpd ppp iptables && \
 EXPOSE 1723/tcp
  
 CMD set -ex && \
+    iptables -t nat -D POSTROUTING -o eth0 -j MASQUERADE  & \
     iptables -t nat -A POSTROUTING -o eth0 -j MASQUERADE && \
     if [[ "$LOCALDNS" -eq "1" ]]; then \
         echo 'ms-dns 127.0.0.1' >> /etc/ppp/pptpd-options && \

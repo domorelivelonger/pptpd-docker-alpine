@@ -6,7 +6,7 @@ services:
     build: .
     image: pptpd1
     volumes:
-      - ./chap-secrets:/etc/ppp/chap-secrets
+      - /$(pwd)/chap-secrets:/etc/ppp/chap-secrets
     network_mode: host
     ports:
       - 1723:1723
